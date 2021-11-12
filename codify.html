@@ -13,11 +13,11 @@
     <div class="container">
         <div class="row align-items-start">
           <div class="col">
-            <select class="form-select" id="language-val" aria-label="Default select example">
+            <select onchange="updateInput()" class="form-select" id="language-val" aria-label="Default select example">
                 <option value="javascript">JavaScript</option>
-                <option value="css">CSS</option>
-                <option value="html">HTML</option>
                 <option value="markup">Markup</option>
+                <option value="css">CSS</option>
+                
                 <option value="bash">Bash</option>
                 <option value="basic">Basic</option>
                 <option value="cpp">C++</option>
@@ -38,6 +38,7 @@
                 <option value="visual-basic">Visual Basic</option>
 
               </select>
+<br>              <input type="text" id="langName" placeholder="e.g. Java"><br>
               <br>
            
                 <textarea  class="form-control" placeholder="Code" id="input" style="height: 200px"></textarea>
@@ -61,6 +62,12 @@
     tabs = [];
     var output =document.getElementById("output");
 
+    function updateInput()
+    {
+        let language =document.getElementById("language-val");
+        ot=document.getElementById("langName");
+        ot.value=language.options[language.selectedIndex].text;;
+    }
 
 function add()
 {
@@ -73,10 +80,10 @@ function add()
     code=start+new_input+end;
     tab = {}
     
-   tab["language"]=language.options[language.selectedIndex].text;;
+   tab["language"]=document.getElementById("langName").value;
    tab["code"]=code;
    tabs.push(tab);
-    
+
    
 
 }
