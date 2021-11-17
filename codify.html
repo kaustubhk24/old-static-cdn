@@ -15,27 +15,33 @@
           <div class="col">
             <select onchange="updateInput()" class="form-select" id="language-val" aria-label="Default select example">
                 <option value="javascript">JavaScript</option>
-                <option value="markup">Markup</option>
-                <option value="css">CSS</option>
-                
-                <option value="bash">Bash</option>
-                <option value="basic">Basic</option>
                 <option value="cpp">C++</option>
-                <option value="dart">Dart</option>
+                <option value="vbnet">VB.NET</option>
                 <option value="git">Git</option>
                 <option value="java">Java</option>
                 <option value="json">JSON</option>
+                <option value="css">CSS</option>
+                <option value="python">Output</option>
+                <option value="visual-basic">Visual Basic</option>
+                <option value="markup">Markup</option>
+               
+                <option value="python">Python</option>
+                <option value="php">PHP</option>
+            
+                <option value="sql">SQL</option>
+                <option value="bash">Bash</option>
+                <option value="basic">Basic</option>
+                
+                <option value="dart">Dart</option>
+
                 <option value="json5">json5</option>
                 <option value="kotlin">Kotlin</option>
                 <option value="markup-templating">markup-templating</option>
-                <option value="php">PHP</option>
+             
                 <option value="plsql">plsql</option>
-                <option value="python">Python</option>
-                <option value="jsx">JSX</option>
-                <option value="sql">SQL</option>
+                
                 <option value="uri">URI</option>
-                <option value="vbnet">VB.NET</option>
-                <option value="visual-basic">Visual Basic</option>
+                <option value="jsx">JSX</option>
 
               </select>
 <br>              <input type="text" id="langName" placeholder="e.g. Java"><br>
@@ -48,6 +54,8 @@
 
           </div>
           <div class="col">
+            <button onclick="copy()">Copy</button>
+
             <textarea class="form-control" placeholder="Output" id="output" style="height: 300px"></textarea>
 
           </div>
@@ -93,7 +101,13 @@ function clean( txt)
     txt=txt.replaceAll(">", "&gt;");
     return txt;
 }
+function copy() {
+    let textarea = document.getElementById("output");
+    textarea.select();
+    document.execCommand("copy");
+    location.reload()
 
+  }
 function doIt()
 {
     preLang='<ul class="nav nav-tabs" id="myTab" role="tablist"> ';
